@@ -8,6 +8,7 @@
 
   <style>
     :root {
+      /* PALETA BASE (MODO OSCURO) */
       --bg-main: #050816;
       --bg-elevated: #050b16;
       --bg-card: #0b1220;
@@ -37,10 +38,13 @@
 
     html, body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #020617 45%, #020617 100%);
-      color: var(--text-main);
       line-height: 1.6;
       scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #020617 0, #020617 45%, #020617 100%);
+      color: var(--text-main);
     }
 
     a {
@@ -80,6 +84,7 @@
       align-items: center;
       justify-content: space-between;
       font-size: 0.9rem;
+      gap: 1rem;
     }
 
     .logo {
@@ -115,6 +120,12 @@
       color: var(--text-soft);
     }
 
+    .nav-center {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+
     .nav-links {
       display: flex;
       gap: 1.4rem;
@@ -131,8 +142,15 @@
       border-bottom-color: var(--accent-green-soft);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+
     .nav-cta {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--accent-green-soft);
     }
 
@@ -175,6 +193,31 @@
     .btn-ghost:hover {
       background: #020617;
       color: #e5e7eb;
+    }
+
+    /* Botón modo claro/oscuro en el navbar */
+    .theme-toggle {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: transparent;
+      color: var(--text-soft);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.16s ease-out, color 0.16s ease-out, border-color 0.16s;
+    }
+
+    .theme-toggle:hover {
+      background: #020617;
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.8);
+    }
+
+    .theme-toggle-icon {
+      font-size: 0.95rem;
     }
 
     main {
@@ -309,7 +352,7 @@
     .screen-inner {
       border-radius: 1.7rem;
       background: #020617;
-      padding: 0.1rem; /* casi sin borde interno */
+      padding: 0.1rem;
       display: block;
     }
 
@@ -588,7 +631,7 @@
       color: var(--accent-green-soft);
     }
 
-    /* --- CLASE fade-in AHORA SIEMPRE VISIBLE (sin JS) --- */
+    /* --- CLASE fade-in (visible por defecto) --- */
     .fade-in {
       opacity: 1;
       transform: translateY(0);
@@ -596,6 +639,96 @@
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* ============ MODO CLARO ============ */
+    body.theme-light {
+      --bg-main: #f9fafb;
+      --bg-elevated: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-soft: #f3f4f6;
+      --accent-green: #16a34a;
+      --accent-green-soft: #22c55e;
+      --accent-yellow: #facc15;
+      --accent-peach: #fed7aa;
+
+      --text-main: #020617;
+      --text-soft: #4b5563;
+      --text-softer: #6b7280;
+
+      --border-soft: #e5e7eb;
+
+      background: #f9fafb;
+      color: var(--text-main);
+    }
+
+    body.theme-light header {
+      background: rgba(249, 250, 251, 0.92);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    body.theme-light .hero {
+      background: linear-gradient(180deg, #f9fafb, #eef2ff);
+      border-bottom-color: #e5e7eb;
+    }
+
+    body.theme-light .panel,
+    body.theme-light .problem-card,
+    body.theme-light .who-card {
+      background: var(--bg-card);
+      border-color: #e5e7eb;
+    }
+
+    body.theme-light .panel:hover,
+    body.theme-light .problem-card:hover,
+    body.theme-light .who-card:hover {
+      background: #f9fafb;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      border-color: #d1d5db;
+    }
+
+    body.theme-light .step {
+      background: #f9fafb;
+      border-color: #e5e7eb;
+    }
+
+    body.theme-light .step:hover {
+      background: #ffffff;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      border-color: #d1d5db;
+    }
+
+    body.theme-light .who-card {
+      background: #ffffff;
+    }
+
+    body.theme-light .tag {
+      background: #f9fafb;
+      border-color: #e5e7eb;
+      color: #4b5563;
+    }
+
+    body.theme-light .cta-section {
+      background: #f9fafb;
+      border-top-color: #e5e7eb;
+      border-bottom-color: #e5e7eb;
+    }
+
+    body.theme-light footer {
+      background: #f9fafb;
+      border-top-color: #e5e7eb;
+      color: #6b7280;
+    }
+
+    body.theme-light .theme-toggle {
+      background: #f9fafb;
+      border-color: #e5e7eb;
+      color: #4b5563;
+    }
+
+    body.theme-light .theme-toggle:hover {
+      background: #e5e7eb;
+      color: #111827;
     }
 
     /* RESPONSIVE */
@@ -618,7 +751,7 @@
     }
 
     @media (max-width: 767px) {
-      .nav-links {
+      .nav-center {
         display: none;
       }
 
@@ -678,13 +811,23 @@
             <span>Bienestar académico con IA</span>
           </div>
         </a>
-        <nav class="nav-links">
-          <a href="#ideas">Producto</a>
-          <a href="#ciclo">Problema</a>
-          <a href="#como">Cómo funciona</a>
-          <a href="#para-quien">Para quién</a>
-        </nav>
-        <a href="#beta" class="nav-cta">Beta cerrada</a>
+
+        <div class="nav-center">
+          <nav class="nav-links">
+            <a href="#ideas">Producto</a>
+            <a href="#ciclo">Problema</a>
+            <a href="#como">Cómo funciona</a>
+            <a href="#para-quien">Para quién</a>
+          </nav>
+        </div>
+
+        <div class="nav-right">
+          <a href="#beta" class="nav-cta">Beta cerrada</a>
+          <button id="theme-toggle" class="theme-toggle" type="button">
+            <span class="theme-toggle-icon">🌙</span>
+            <span id="theme-toggle-label">Modo claro</span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -947,8 +1090,41 @@
   </div>
 
   <script>
-    // Año automático en el footer
+    // Año automático
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ----- Tema claro / oscuro -----
+    const toggleBtn = document.getElementById("theme-toggle");
+    const toggleLabel = document.getElementById("theme-toggle-label");
+    const prefersDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    // Lee de localStorage o usa preferencia del sistema
+    let savedTheme = localStorage.getItem("unithrive-theme");
+    if (!savedTheme) {
+      savedTheme = prefersDark ? "dark" : "light";
+    }
+
+    function applyTheme(theme) {
+      if (theme === "light") {
+        document.body.classList.add("theme-light");
+        toggleLabel.textContent = "Modo oscuro";
+        toggleBtn.querySelector(".theme-toggle-icon").textContent = "☀️";
+      } else {
+        document.body.classList.remove("theme-light");
+        toggleLabel.textContent = "Modo claro";
+        toggleBtn.querySelector(".theme-toggle-icon").textContent = "🌙";
+      }
+      localStorage.setItem("unithrive-theme", theme);
+    }
+
+    applyTheme(savedTheme);
+
+    toggleBtn.addEventListener("click", () => {
+      const currentTheme = document.body.classList.contains("theme-light") ? "light" : "dark";
+      const nextTheme = currentTheme === "light" ? "dark" : "light";
+      applyTheme(nextTheme);
+    });
   </script>
 </body>
 </html>
