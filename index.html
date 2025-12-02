@@ -14,7 +14,7 @@
       --bg-card: #0b1220;
       --bg-card-soft: #101827;
       --accent-green: #7dd3b0;
-      --accent-green-soft: #9fe3c3;
+      --accent-green-soft: #9fe3b3;
       --accent-yellow: #facc6b;
       --accent-peach: #ffe3b3;
       --accent-red: #f97373;
@@ -574,6 +574,96 @@
       color: var(--text-soft);
     }
 
+    /* ====== PRICING ====== */
+    .pricing-section {
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .pricing-grid {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: var(--bg-card);
+      padding: 1.6rem 1.5rem;
+      display: grid;
+      gap: 0.4rem;
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out, background 0.18s ease-out;
+    }
+
+    .price-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+      border-color: rgba(148, 163, 184, 0.5);
+      background: #020617;
+    }
+
+    .price-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .price-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .price-badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      color: var(--text-softer);
+    }
+
+    .price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .price-small {
+      font-size: 0.9rem;
+      color: var(--text-softer);
+      margin-left: 0.25rem;
+    }
+
+    .price-desc {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-top: 0.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .price-list {
+      list-style: none;
+      display: grid;
+      gap: 0.3rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-top: 0.4rem;
+    }
+
+    .price-list li::before {
+      content: "✓ ";
+      color: var(--accent-green-soft);
+    }
+
+    .price-cta {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-softer);
+    }
+
     .cta-section {
       background: linear-gradient(145deg, #020617, #020617);
       border-top: 1px solid var(--border-soft);
@@ -674,14 +764,16 @@
 
     body.theme-light .panel,
     body.theme-light .problem-card,
-    body.theme-light .who-card {
+    body.theme-light .who-card,
+    body.theme-light .price-card {
       background: var(--bg-card);
       border-color: #e5e7eb;
     }
 
     body.theme-light .panel:hover,
     body.theme-light .problem-card:hover,
-    body.theme-light .who-card:hover {
+    body.theme-light .who-card:hover,
+    body.theme-light .price-card:hover {
       background: #f9fafb;
       box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
       border-color: #d1d5db;
@@ -708,7 +800,8 @@
       color: #4b5563;
     }
 
-    body.theme-light .cta-section {
+    body.theme-light .cta-section,
+    body.theme-light .pricing-section {
       background: #f9fafb;
       border-top-color: #e5e7eb;
       border-bottom-color: #e5e7eb;
@@ -748,6 +841,10 @@
       .steps-row {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 767px) {
@@ -768,7 +865,7 @@
       }
 
       .hero-right {
-        order: -1; /* mockup arriba en mobile; quítalo si lo quieres al lado */
+        order: -1;
       }
 
       .section-title {
@@ -818,6 +915,7 @@
             <a href="#ciclo">Problema</a>
             <a href="#como">Cómo funciona</a>
             <a href="#para-quien">Para quién</a>
+            <a href="#planes">Planes</a>
           </nav>
         </div>
 
@@ -862,7 +960,7 @@
             </p>
           </div>
 
-          <!-- Mockup celular con la IMAGEN COMPLETA -->
+          <!-- Mockup celular -->
           <div class="hero-right fade-in" aria-hidden="true">
             <div class="screen-shell">
               <div class="screen-inner">
@@ -1050,6 +1148,70 @@
         </div>
       </section>
 
+      <!-- PLANES -->
+      <section id="planes" class="pricing-section fade-in">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Planes</p>
+            <h2 class="section-title">Elige cómo quieres empezar.</h2>
+            <p class="section-subtitle">
+              UniThrive nace pensando en estudiantes. Por eso siempre habrá un plan básico gratuito
+              y una opción Pro muy accesible para quienes quieran ir un poco más allá.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- Plan Básico -->
+            <article class="price-card">
+              <div class="price-header">
+                <div>
+                  <p class="price-name">Plan Básico</p>
+                  <p class="price-desc">Para probar UniThrive y organizar tus semanas sin complicarte.</p>
+                </div>
+                <span class="price-badge">Siempre gratis</span>
+              </div>
+              <p class="price">
+                US$ 0
+                <span class="price-small">/mes</span>
+              </p>
+              <ul class="price-list">
+                <li>Planificador inteligente para un número limitado de proyectos.</li>
+                <li>Vista “Hoy” con las tareas del día.</li>
+                <li>Temporizador de enfoque básico.</li>
+                <li>Notificaciones esenciales de recordatorio.</li>
+              </ul>
+              <p class="price-cta">
+                Ideal si quieres salir del caos inicial y ver cómo se siente trabajar con micro-tareas.
+              </p>
+            </article>
+
+            <!-- Plan Pro -->
+            <article class="price-card">
+              <div class="price-header">
+                <div>
+                  <p class="price-name">Plan Pro</p>
+                  <p class="price-desc">Para quienes quieren acompañamiento completo durante el ciclo.</p>
+                </div>
+                <span class="price-badge">Más recomendado</span>
+              </div>
+              <p class="price">
+                US$ 2
+                <span class="price-small">/mes</span>
+              </p>
+              <ul class="price-list">
+                <li>Planificación inteligente para proyectos ilimitados.</li>
+                <li>Gestión de varios cursos y entregas en paralelo sin perder el control.</li>
+                <li>Checklist maestro completo para cada proyecto generado por la IA.</li>
+                <li>Acceso prioritario a nuevas funciones y mejoras dentro de UniThrive.</li>
+              </ul>
+              <p class="price-cta">
+                Pensado para estudiantes que usan UniThrive como su centro de organización durante todo el semestre.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- CTA BETA -->
       <section id="beta" class="cta-section fade-in">
         <div class="container">
@@ -1083,6 +1245,7 @@
           <a href="#ciclo">Problema</a>
           <a href="#como">Cómo funciona</a>
           <a href="#para-quien">Para quién</a>
+          <a href="#planes">Planes</a>
           <a href="#beta">Beta</a>
         </div>
       </div>
@@ -1099,7 +1262,6 @@
     const prefersDark = window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    // Lee de localStorage o usa preferencia del sistema
     let savedTheme = localStorage.getItem("unithrive-theme");
     if (!savedTheme) {
       savedTheme = prefersDark ? "dark" : "light";
