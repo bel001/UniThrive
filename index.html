@@ -394,9 +394,41 @@
       margin: 0 auto;
     }
 
+    .product-layout {
+      display: grid;
+      gap: 1.6rem;
+      align-items: start;
+      margin-top: 1.4rem;
+    }
+
+    .product-media {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* VIDEO DEMO */
+    .video-wrapper {
+      width: min(420px, 100%);
+      max-width: 420px;
+      margin: 0 auto;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+      background: #020617;
+    }
+
+    .video-wrapper video,
+    .video-wrapper iframe {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .panel-row {
       display: grid;
-      gap: 1.5rem;
+      gap: 1.2rem;
+      grid-template-columns: 1fr;
     }
 
     .panel {
@@ -830,10 +862,6 @@
         grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       }
 
-      .panel-row {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
       .problem-layout {
         grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       }
@@ -844,6 +872,16 @@
 
       .pricing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 900px) {
+      .product-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      }
+
+      .product-media {
+        justify-content: flex-end;
       }
     }
 
@@ -951,7 +989,7 @@
 
             <div class="hero-actions">
               <a href="#beta" class="btn btn-primary">Unirme a la beta</a>
-              <a href="#como" class="btn btn-ghost">Ver cómo funciona</a>
+              <a href="#video-demo" class="btn btn-ghost">Ver cómo funciona</a>
             </div>
 
             <p class="hero-note">
@@ -975,61 +1013,145 @@
       </section>
 
       <!-- PRODUCTO -->
+
       <section id="ideas" class="fade-in">
+
         <div class="container">
+
           <div class="section-header">
+
             <p class="eyebrow">El producto</p>
+
             <h2 class="section-title">UniThrive en tres ideas clave.</h2>
+
             <p class="section-subtitle">
+
               Un pequeño ecosistema diseñado para que tu semana tenga orden, tus sesiones tengan foco
+
               y tu cabeza tenga un poco más de calma.
+
             </p>
+
           </div>
 
-          <div class="panel-row">
-            <article class="panel">
-              <p class="panel-label">Planificación</p>
-              <h3>La IA diseña tu plan.</h3>
-              <p>
-                Le enseñas a UniThrive tu horario real (clases, trabajo, rutinas) y registras tus proyectos
-                con nombre, fecha de entrega y tamaño.
-              </p>
-              <ul class="panel-list">
-                <li>Desglose automático en micro-tareas diarias.</li>
-                <li>Distribución según huecos libres y carga actual.</li>
-                <li>Un calendario que se adapta a tu vida, no al revés.</li>
-              </ul>
-            </article>
+          <div class="product-layout">
 
-            <article class="panel">
-              <p class="panel-label">Enfoque</p>
-              <h3>Solo ves lo de hoy.</h3>
-              <p>
-                El panel principal es como tu “pantalla de inicio”: muestra solo lo que toca hoy,
-                con tiempos estimados y nivel de prioridad.
-              </p>
-              <ul class="panel-list">
-                <li>Evitas listas infinitas y sensación de montaña.</li>
-                <li>Modo enfoque con temporizador minimalista.</li>
-                <li>Recordatorios suaves que te ayudan a empezar.</li>
-              </ul>
-            </article>
+            <div class="panel-row">
 
-            <article class="panel">
-              <p class="panel-label">Bienestar</p>
-              <h3>Avance constante, sin burnout.</h3>
-              <p>
-                UniThrive está pensada para que avances un poco cada día, en vez de vivir a base
-                de atracones de estudio y noches sin dormir.
-              </p>
-              <ul class="panel-list">
-                <li>Bloques de trabajo cortos y realistas.</li>
-                <li>Descansos visibles para no sobreexigirte.</li>
-                <li>Mensajes de ánimo y seguimiento de progreso.</li>
-              </ul>
-            </article>
+              <article class="panel">
+
+                <p class="panel-label">Planificación</p>
+
+                <h3>La IA dise�a tu plan.</h3>
+
+                <p>
+
+                  Le enseñas a UniThrive tu horario real (clases, trabajo, rutinas) y registras tus proyectos
+
+                  con nombre, fecha de entrega y tamaño.
+
+                </p>
+
+                <ul class="panel-list">
+
+                  <li>Desglose autom�tico en micro-tareas diarias.</li>
+
+                  <li>Distribución según huecos libres y carga actual.</li>
+
+                  <li>Un calendario que se adapta a tu vida, no al rev�s.</li>
+
+                </ul>
+
+              </article>
+
+              <article class="panel">
+
+                <p class="panel-label">Enfoque</p>
+
+                <h3>Solo ves lo de hoy.</h3>
+
+                <p>
+
+                  El panel principal es como tu pantalla de inicio: muestra solo lo que toca hoy,
+
+                  con tiempos estimados y nivel de prioridad.
+
+                </p>
+
+                <ul class="panel-list">
+
+                  <li>Evitas listas infinitas y sensación de montaña.</li>
+
+                  <li>Modo enfoque con temporizador minimalista.</li>
+
+                  <li>Recordatorios suaves que te ayudan a empezar.</li>
+
+                </ul>
+
+              </article>
+
+              <article class="panel">
+
+                <p class="panel-label">Bienestar</p>
+
+                <h3>Avance constante, sin burnout.</h3>
+
+                <p>
+
+                  UniThrive est� pensada para que avances un poco cada d�a, en vez de vivir a base
+
+                  de atracones de estudio y noches sin dormir.
+
+                </p>
+
+                <ul class="panel-list">
+
+                  <li>Bloques de trabajo cortos y realistas.</li>
+
+                  <li>Descansos visibles para no sobreexigirte.</li>
+
+                  <li>Mensajes de ?nimo y seguimiento de progreso.</li>
+
+                </ul>
+
+              </article>
+
+            </div>
+
+            <div class="product-media" id="video-demo">
+
+              <!-- DEMO EN VIDEO DE LA APP -->
+
+              <div class="video-wrapper">
+
+                <video
+
+                  controls
+
+                  muted
+
+                  playsinline
+
+                  preload="metadata"
+
+                  poster="img/unithrive-poster.png">
+
+                  <!-- ¡Asegúrate de crear la carpeta "video" y poner ahí tu archivo -->
+
+                  <source src="video/unithrive-demo.mp4" type="video/mp4">
+
+                  Tu navegador no soporta video HTML5. Puedes ver la demo en otro navegador.
+
+                </video>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
+
       </section>
 
       <!-- PROBLEMA -->
